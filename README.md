@@ -6,7 +6,7 @@ It finds words with the letters that you enter.
 
 <ul>
 <li>solver.rb is for games like hangman, where you know some letters and you want to find the rest.</li>
-<li>bookworm.rb is for games like scrabble or bookworm adventures (http://http://www.popcap.com/games/bookworm-adventures2/pc which is the actual reason I created all this), you
+<li>bookworm.rb is for games like scrabble or bookworm adventures (http://www.popcap.com/games/bookworm-adventures2/pc which is the actual reason I created all this), you
 enter all the letters and it finds all the possible combination it can.</li>
 </ul>
 
