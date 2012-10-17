@@ -9,7 +9,7 @@ ActiveRecord::Base.establish_connection(
   encoding: "utf8",
   database: "wordmatch",
   username: "root",
-  password: "vorpal"
+  password: "yourpass"
   #socket: "/tmp/mysql.sock"
 )
 
