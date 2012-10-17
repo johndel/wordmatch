@@ -24,7 +24,7 @@ ordered_word = ARGV[0].upcase.chars.sort.join.split(//)
 words = EnWord.select(:word) #.limit(200)
 
 
-tmp_array = []  
+  
 array = []
 
 puts "Middle Time #{Time.now - beginning}"
@@ -32,17 +32,11 @@ puts "Middle Time #{Time.now - beginning}"
 counter = ordered_word.count
 while counter > 6
 	ordered_word.combination(counter).to_a.each do |el|
-		tmp_array << el.sort.join(",").gsub(",", "")
+		x = EnWord.where(:ordered_word => el.sort.join(",").gsub(",", "")).first
+		unless x.nil?
+			array << x.word 
+		end
 	end
-	
-	array = EnWord.all(:conditions => ["ordered_word IN (?)", tmp_array.uniq])
-	
-#	tmp_array.uniq.each do |el2|
-#		x = EnWord.all(:ordered_word => el2).first
-#		unless x.nil?
-#			array << x.word 
-#		end
-#	end
 	counter = counter - 1
 end
 #words.each do |word|
@@ -53,10 +47,9 @@ end
 
 puts "After word search: #{Time.now - beginning}"
 
-array = array.uniq.sort_by {|x| x.word.length}
 
-array.each do |el|
-  puts el.word
+array.reverse.uniq.each do |el|
+  puts el
 end
 
 puts "Found #{array.count} words. Time elapsed #{Time.now - beginning} seconds"
